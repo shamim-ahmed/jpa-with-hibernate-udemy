@@ -22,7 +22,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build spring.boot-project1 with Maven
-      run: mvn -B package --file spring.boot-project1/pom.xml
-    - name: Build spring.boot-project2 with Maven
-      run: mvn -B package --file spring.boot-project2/pom.xml
+    - name: Build spring-boot-project1 with Maven
+      run: mvn -B package --file spring-boot-project1/pom.xml
+    - name: Build spring-boot-project2 with Maven
+      run: mvn -B package --file spring-boot-project2/pom.xml
