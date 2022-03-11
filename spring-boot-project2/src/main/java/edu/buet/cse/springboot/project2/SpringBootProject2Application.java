@@ -27,6 +27,9 @@ public class SpringBootProject2Application implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     List<Person> resultList = jdbcDao.findAll();
-    logger.info("All users -> {}", resultList);
+    logger.info("All persons -> {}", resultList);
+
+    Person person = jdbcDao.findById(1);
+    logger.info("Person with id 1 -> {}", person);
   }
 }
