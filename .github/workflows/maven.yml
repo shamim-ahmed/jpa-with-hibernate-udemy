@@ -28,3 +28,5 @@ jobs:
       run: mvn -B package --file spring-boot-project2/pom.xml
     - name: Build spring-boot-project3 with Maven
       run: mvn -B package --file spring-boot-project3/pom.xml
+    - name: Build spring-boot-project4 with Maven
+      run: mvn -B package --file spring-boot-project3/pom.xml
