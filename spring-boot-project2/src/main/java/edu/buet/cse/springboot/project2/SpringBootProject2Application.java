@@ -1,5 +1,6 @@
 package edu.buet.cse.springboot.project2;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -38,5 +39,11 @@ public class SpringBootProject2Application implements CommandLineRunner {
     int id = 2;
     logger.info("Deleting Person with id {}...", id);
     logger.info("No of rows deleted -> {}", jdbcDao.deleteById(id));
+    
+    Person billGates = new Person();
+    billGates.setName("Bill Gates");
+    billGates.setLocation("USA");
+    billGates.setBirthDate(new Date());
+    logger.info("No of rows inserted -> {}", jdbcDao.insert(billGates));
   }
 }

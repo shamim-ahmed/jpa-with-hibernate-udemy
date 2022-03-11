@@ -32,4 +32,9 @@ public class PersonJdbcDao {
   public int deleteById(int id) {
     return jdbcTemplate.update("DELETE FROM Person WHERE id = ?", new Object[] {id});
   }
+
+  public int insert(Person person) {
+    return jdbcTemplate.update("INSERT INTO PERSON (name, location, birth_date) VALUES (?, ?, ?)",
+        new Object[] {person.getName(), person.getLocation(), person.getBirthDate()});
+  }
 }
