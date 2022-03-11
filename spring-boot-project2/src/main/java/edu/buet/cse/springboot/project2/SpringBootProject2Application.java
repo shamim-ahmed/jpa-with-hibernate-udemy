@@ -34,5 +34,9 @@ public class SpringBootProject2Application implements CommandLineRunner {
 
     List<Person> usaPersonList = jdbcDao.findByLocation("USA");
     logger.info("Person with location USA -> {}", usaPersonList);
+    
+    int id = 2;
+    logger.info("Deleting Person with id {}...", id);
+    logger.info("No of rows deleted -> {}", jdbcDao.deleteById(id));
   }
 }
