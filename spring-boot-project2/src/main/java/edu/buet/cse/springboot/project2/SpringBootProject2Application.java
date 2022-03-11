@@ -26,10 +26,13 @@ public class SpringBootProject2Application implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    List<Person> resultList = jdbcDao.findAll();
-    logger.info("All persons -> {}", resultList);
+    List<Person> allPersonList = jdbcDao.findAll();
+    logger.info("All persons -> {}", allPersonList);
 
     Person person = jdbcDao.findById(1);
     logger.info("Person with id 1 -> {}", person);
+
+    List<Person> usaPersonList = jdbcDao.findByLocation("USA");
+    logger.info("Person with location USA -> {}", usaPersonList);
   }
 }
