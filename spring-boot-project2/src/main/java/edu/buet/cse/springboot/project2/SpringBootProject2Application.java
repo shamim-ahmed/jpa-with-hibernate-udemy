@@ -33,7 +33,7 @@ public class SpringBootProject2Application implements CommandLineRunner {
     logger.info("All persons -> {}", allPersonList);
 
     // find Person with a specific id
-    Person person = jdbcDao.findById(1);
+    Person person = jdbcDao.findById(1L);
     logger.info("Person with id 1 -> {}", person);
 
     // find all Person objects with a specific location
@@ -41,7 +41,7 @@ public class SpringBootProject2Application implements CommandLineRunner {
     logger.info("Person with location USA -> {}", usaPersonList);
 
     // delete a Person with specific id
-    int id = 2;
+    long id = 2L;
     logger.info("Deleting Person with id {}...", id);
     logger.info("No of rows deleted -> {}", jdbcDao.deleteById(id));
 
