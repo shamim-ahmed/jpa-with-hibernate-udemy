@@ -33,7 +33,7 @@ public class PersonJdbcDao {
     return jdbcTemplate.query(SELECT_ALL_PERSON_QUERY, new PersonRowMapper());
   }
 
-  public Person findById(int id) {
+  public Person findById(long id) {
     return jdbcTemplate.queryForObject(SELECT_PERSON_BY_ID_QUERY,
         new PersonRowMapper(), new Object[] {id});
   }
@@ -43,7 +43,7 @@ public class PersonJdbcDao {
         new PersonRowMapper(), new Object[] {location});
   }
 
-  public int deleteById(int id) {
+  public int deleteById(long id) {
     return jdbcTemplate.update(DELETE_PERSON_BY_ID_QUERY, new Object[] {id});
   }
 
