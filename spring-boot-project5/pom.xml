@@ -10,10 +10,10 @@
   </parent>
 
   <groupId>edu.buet.cse</groupId>
-  <artifactId>spring-boot-project4</artifactId>
+  <artifactId>spring-boot-project5</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>spring-boot-project4</name>
-  <description>Demo project with JPA implementation of basic DB operations</description>
+  <name>spring-boot-project5</name>
+  <description>Demo project with JPA NamedQuery</description>
 
   <properties>
     <java.version>11</java.version>
