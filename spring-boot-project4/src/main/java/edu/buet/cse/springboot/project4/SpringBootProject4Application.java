@@ -1,5 +1,9 @@
 package edu.buet.cse.springboot.project4;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +30,30 @@ public class SpringBootProject4Application implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    Person person = personRepository.getById(1L);
+    List<Person> personList = personRepository.findAll();
+    logger.info("all Persons -> {}", personList);
+
+    Person person = personRepository.findById(1L);
     logger.info("Person -> {}", person);
+
+    Person billGates = new Person();
+    billGates.setName("Bill Gates");
+    billGates.setLocation("USA");
+    billGates.setBirthDate(new Date());
+
+    billGates = personRepository.insert(billGates);
+    logger.info("New Person -> {}", billGates);
+
+    Calendar calendar = Calendar.getInstance();
+    calendar.set(Calendar.YEAR, 1955);
+    calendar.set(Calendar.MONTH, Calendar.OCTOBER);
+    calendar.set(Calendar.DAY_OF_MONTH, 28);
+    billGates.setBirthDate(calendar.getTime());
+
+    billGates = personRepository.update(billGates);
+    logger.info("Updated Person -> {}", billGates);
+
+    personRepository.deleteById(1L);
+    logger.info("Person with id 1 has been removed");
   }
 }
