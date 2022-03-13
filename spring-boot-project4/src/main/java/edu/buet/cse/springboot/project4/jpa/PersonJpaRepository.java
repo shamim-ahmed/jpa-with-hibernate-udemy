@@ -17,7 +17,7 @@ public class PersonJpaRepository {
 
   @PersistenceContext
   private EntityManager entityManager;
-  
+
   public List<Person> findAll() {
     TypedQuery<Person> query = entityManager.createQuery("SELECT p FROM Person p", Person.class);
     return query.getResultList();
@@ -28,7 +28,8 @@ public class PersonJpaRepository {
   }
 
   public Person insert(Person person) {
-    return entityManager.merge(person);
+    entityManager.persist(person);
+    return person;
   }
 
   public Person update(Person person) {

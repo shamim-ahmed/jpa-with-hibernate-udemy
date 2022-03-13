@@ -28,7 +28,8 @@ public class PersonJpaRepository {
   }
 
   public Person insert(Person person) {
-    return entityManager.merge(person);
+    entityManager.persist(person);
+    return person;
   }
 
   public Person update(Person person) {

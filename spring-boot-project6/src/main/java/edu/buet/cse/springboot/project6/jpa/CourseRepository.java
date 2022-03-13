@@ -1,15 +1,18 @@
 package edu.buet.cse.springboot.project6.jpa;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.buet.cse.springboot.project6.entity.Course;
 
 @Repository
+@Transactional
 public class CourseRepository {
-  @Autowired
+
+  @PersistenceContext
   private EntityManager entityManager;
 
   public Course findById(long id) {
@@ -17,6 +20,11 @@ public class CourseRepository {
   }
 
   public Course save(Course course) {
+    if (course.getId() == null) {
+      entityManager.persist(course);
+      return course;
+    }
+
     return entityManager.merge(course);
   }
 
