@@ -8,12 +8,13 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import edu.buet.cse.springboot.project5.entity.Person;
 import edu.buet.cse.springboot.project5.jpa.PersonJpaRepository;
 
 @SpringBootTest
-class SpringBootProject5ApplicationTests {
+public class SpringBootProject5ApplicationTests {
 
   @Autowired
   private PersonJpaRepository personRepository;
@@ -33,6 +34,7 @@ class SpringBootProject5ApplicationTests {
   }
 
   @Test
+  @DirtiesContext
   public void testInsert() {
     Person person = new Person();
     person.setName("Ranga Karanam");
@@ -45,6 +47,7 @@ class SpringBootProject5ApplicationTests {
   }
 
   @Test
+  @DirtiesContext
   public void testUpdate() {
     Person person = personRepository.findById(3L);
     person.setName("Hayao Miyazaki");
@@ -53,5 +56,4 @@ class SpringBootProject5ApplicationTests {
     assertNotNull(person);
     assertEquals("Hayao Miyazaki", person.getName(), "name is different than expected");
   }
-
 }

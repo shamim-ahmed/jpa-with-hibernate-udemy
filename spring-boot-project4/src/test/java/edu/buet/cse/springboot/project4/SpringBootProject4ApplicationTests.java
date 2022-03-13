@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import edu.buet.cse.springboot.project4.entity.Person;
 import edu.buet.cse.springboot.project4.jpa.PersonJpaRepository;
@@ -36,6 +37,7 @@ public class SpringBootProject4ApplicationTests {
   }
 
   @Test
+  @DirtiesContext
   public void testInsert() {
     Person person = new Person();
     person.setName("Ranga Karanam");
@@ -48,6 +50,7 @@ public class SpringBootProject4ApplicationTests {
   }
 
   @Test
+  @DirtiesContext
   public void testUpdate() {
     Person person = personRepository.findById(3L);
     person.setName("Hayao Miyazaki");
