@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import edu.buet.cse.springboot.project2.entity.Person;
 import edu.buet.cse.springboot.project2.jdbc.PersonJdbcDao;
@@ -35,6 +36,7 @@ class SpringBootProject2ApplicationTests {
   }
 
   @Test
+  @DirtiesContext
   public void testInsert() {
     Person person = new Person();
     person.setName("Ranga Karanam");
@@ -46,6 +48,7 @@ class SpringBootProject2ApplicationTests {
   }
 
   @Test
+  @DirtiesContext
   public void runUpdate() {
     Person person = personDao.findById(3L);
     assertNotNull(person, "person is null");
