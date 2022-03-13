@@ -53,7 +53,7 @@ public class SpringBootProject5Application implements CommandLineRunner {
     billGates = personRepository.update(billGates);
     logger.info("Updated Person -> {}", billGates);
 
-    personRepository.deleteById(1L);
-    logger.info("Person with id 1 has been removed");
+    personRepository.deleteById(2L);
+    logger.info("Person with id 2 has been removed");
   }
 }
